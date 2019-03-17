@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LIST</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <!-- css -->
+
+    <style>
+      .container-fluid {
+        text-align: center;
+        height: 100vh;
+      }
+      .heading {
+        color: #ead7d7;
+        font-size: 85px;
+        font-weight: lighter;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-left: 15%;
+        margin-right: 15%;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+      }
+      #formm {
+        width: 100%;
+        padding-left: 40px;
+      }
+      .list-group-item {
+        text-align: start;
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+        font-size: 25px;
+      }
+
+      li > input[type="checkbox"] {
+        height: 30px;
+        width: 30px;
+        float: left;
+      }
+      li > span {
+        margin-right: auto;
+        margin-left: 10px;
+      }
+      li > button {
+        border: none;
+        float: right;
+      }
+
+      form > input[type="text"] {
+        width: 100%;
+        border: none;
+        font-size: 20px;
+      }
+      form > input[type="text"]::placeholder {
+        opacity: 0.3;
+      }
+      li > span > input[type="text"] {
+        border: none;
+      }
+      .foot1 {
+        margin-left: 15.3%;
+        margin-right: 15.3%;
+      }
+      .foot2 {
+        margin-left: 15.7%;
+        margin-right: 15.7%;
+      }
+    </style>
+  </head>
+  <body class="container-fluid">
+    <h1 class="heading">todos</h1>
+
+    <!-- <input type="text" id="task" />
+    <button onclick="apnd()">Add</button> -->
+
+    <ul class="list-group listt">
+      <li class="list-group-item">
+        <form id="formm">
+          <input type="text" id="inputForm" name="todo" placeholder="What's next " />
+          <input type="submit" hidden />
+        </form>
+      </li>
+    </ul>
+
+    <div class="foot1">
+      <div class="container" style="background-color:#f6f6f6;height: 7px;border: 1px solid #c7c7c7"></div>
+    </div>
+    <div class="foot2">
+      <div class="container" style="background-color:#f6f6f6;height: 7px;border: 1px solid #c7c7c7"></div>
+    </div>
+
+    <!-- javascript -->
+
+    <script>
+      var form = document.querySelector("#formm");
+      var list = document.querySelector(".listt");
+
+      form.onsubmit = function(event) {
+        event.preventDefault();
+        apnd(list, form.todo.value);
+        form.todo.value = "";
+      };
+
+      function apnd(list, val) {
+        var node = document.createElement("li");
+        node.classList.add("list-group-item");
+
+        var btn = document.createElement("button");
+        btn.innerHTML = "DELETE";
+        btn.onclick = click;
+
+        var box = document.createElement("input");
+        box.onclick = check;
+        box.type = "checkbox";
+        box.setAttribute("id", val);
+
+        var span = document.createElement("span");
+
+        var textnode = document.createElement("input");
+        textnode.type = "text";
+        textnode.value = val;
+
+        span.appendChild(textnode);
+
+        node.append(box, span, btn);
+
+        list.appendChild(node);
+      }
+
+      function check(event) {
+        console.log(event.target);
+        var checkbox = event.target;
+
+        if (checkbox.checked) {
+          var x = checkbox.parentNode;
+
+          x.querySelector("span").childNodes[0].style.textDecoration = "line-through";
+          x.querySelector("span").childNodes[0].style.opacity = "0.2";
+        } else {
+          var x = checkbox.parentNode;
+          x.querySelector("span").childNodes[0].style.textDecoration = "none";
+          x.querySelector("span").childNodes[0].style.opacity = "1";
+        }
+      }
+
+      function click(event) {
+        var but = event.target;
+        var parent = but.parentNode;
+        parent.parentNode.removeChild(parent);
+      }
+    </script>
+  </body>
+</html>

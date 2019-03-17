@@ -1,0 +1,86 @@
+.container-fluid {
+    text-align: center;
+    height: 100vh;
+}
+
+.heading {
+    color: #ead7d7;
+    font-size: 85px;
+    font-weight: lighter;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+#formm {
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.inp {
+    border: 1px solid #c7c7c7;
+    height: 60px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    text-align: start;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    font-size: 25px;
+}
+
+li>input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+    float: left;
+}
+
+li>span {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+li>button {
+    border: none;
+    float: right;
+    background-color: white;
+}
+
+form>input[type="text"] {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+}
+
+form>input[type="text"]::placeholder {
+    opacity: 0.3;
+}
+
+li>span>input[type="text"] {
+    border: none;
+}
+
+.foot1 {
+    margin-left: 15.3%;
+    margin-right: 15.3%;
+}
+
+.foot2 {
+    margin-left: 15.7%;
+    margin-right: 15.7%;
+}
+
+.first,
+.second {
+    background-color: #f6f6f6;
+    height: 7px;
+    border: 1px solid #c7c7c7
+}
