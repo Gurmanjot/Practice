@@ -13,6 +13,7 @@ function render() {
     var btn = document.createElement("button");
     btn.innerHTML = "DELETE";
     btn.onclick = remove;
+    btn.classList.add("show");
 
     var box = document.createElement("input");
     box.onclick = check;
